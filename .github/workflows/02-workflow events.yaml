@@ -13,3 +13,12 @@ jobs:
     steps:
       - name: Show the trigger
         run: echo "I have been triggered by a ${{ github.event_name }} event"
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ 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 }}   # <-- PAT secret here
+          commit-message: "Automated changes"
+          branch: auto-pr-branch
+          title: "Automated PR from workflow"
+          body: "This PR was created automatically by GitHub Actions.
